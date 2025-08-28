@@ -1,0 +1,1 @@
+export function Sheet({ children }) { return <>{children}</> } export function SheetTrigger({ children }) { return <>{children}</> } export function SheetContent({ children }) { return <div>{children}</div> } export function SheetHeader({ children }) { return <div>{children}</div> } export function SheetTitle({ children }) { return <h3>{children}</h3> }

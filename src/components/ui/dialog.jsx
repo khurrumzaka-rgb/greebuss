@@ -1,0 +1,1 @@
+export function Dialog({ children }) { return <>{children}</> } export function DialogContent({ children }) { return <div>{children}</div> } export function DialogHeader({ children }) { return <div>{children}</div> } export function DialogTitle({ children }) { return <h2>{children}</h2> }
