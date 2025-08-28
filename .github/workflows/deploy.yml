@@ -22,10 +22,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Publish the ./dist folder to the gh-pages branch
+      # Publish the ./dist folder to the gh-pages branch (overwrites with built files)
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # keep_history: true  # (optional) keep old commits on gh-pages
