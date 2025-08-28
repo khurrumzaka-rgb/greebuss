@@ -8,24 +8,24 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # more tolerant installs
       - name: Install deps
-        run: npm install
+        run: |
+          npm config set fund false
+          npm config set audit false
+          npm install --legacy-peer-deps
 
       - name: Build
-        run: npm run build
+        run: npm run build --silent
 
-      # Publish the ./dist folder to the gh-pages branch
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # keep_history: true  # (optional) keep old commits on gh-pages
